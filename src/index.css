@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 13% 8%;
+    --foreground: 142 70% 60%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 142 70% 60%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 142 70% 60%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 220 13% 8%;
+
+    --secondary: 197 71% 52%;
+    --secondary-foreground: 220 13% 8%;
+
+    --muted: 220 13% 18%;
+    --muted-foreground: 142 30% 50%;
+
+    --accent: 47 96% 53%;
+    --accent-foreground: 220 13% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 18%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.25rem;
+
+    --terminal-green: 142 70% 60%;
+    --code-blue: 197 71% 52%;
+    --warning-yellow: 47 96% 53%;
+    --error-red: 0 72% 51%;
+    --comment-gray: 220 10% 50%;
+
+    --gradient-terminal: linear-gradient(135deg, hsl(220 13% 8%), hsl(220 13% 12%));
+    --shadow-glow: 0 0 30px hsl(142 70% 45% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 13% 8%;
+    --foreground: 142 70% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer utilities {
+  .text-terminal {
+    color: hsl(var(--terminal-green));
+  }
+
+  .text-code-blue {
+    color: hsl(var(--code-blue));
+  }
+
+  .text-warning {
+    color: hsl(var(--warning-yellow));
+  }
+
+  .text-error {
+    color: hsl(var(--error-red));
+  }
+
+  .text-comment {
+    color: hsl(var(--comment-gray));
+  }
+
+  .glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .glitch {
+    animation: glitch 1s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  @keyframes glitch-intense {
+    0%, 100% {
+      transform: translate(0) scale(1);
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      transform: translate(-5px, 5px) scale(1.02);
+      filter: hue-rotate(10deg);
+    }
+    20% {
+      transform: translate(-5px, -5px) scale(0.98);
+      filter: hue-rotate(-10deg);
+    }
+    30% {
+      transform: translate(5px, -5px) scale(1.01);
+      filter: hue-rotate(5deg);
+    }
+    40% {
+      transform: translate(5px, 5px) scale(0.99);
+      filter: hue-rotate(-5deg);
+    }
+    50% {
+      transform: translate(-3px, 3px) scale(1);
+      filter: hue-rotate(0deg);
+    }
+    60% {
+      transform: translate(3px, -3px) scale(1.01);
+      filter: hue-rotate(5deg);
+    }
+    70% {
+      transform: translate(-3px, -3px) scale(0.99);
+      filter: hue-rotate(-5deg);
+    }
+    80% {
+      transform: translate(3px, 3px) scale(1.02);
+      filter: hue-rotate(10deg);
+    }
+    90% {
+      transform: translate(-2px, 2px) scale(0.98);
+      filter: hue-rotate(-10deg);
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .blink {
+    animation: blink 1s infinite;
+  }
+
+  .glitch-intense {
+    animation: glitch-intense 0.3s infinite;
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
