@@ -4,4 +4,4 @@ function App() {
 	return <LeavingCard />;
 }
 
-export default App
+export default App;
